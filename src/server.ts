@@ -1,15 +1,19 @@
 import express from 'express';
 import { serverConfig }from './config';
 import v1Router from  './routers/v1/index.router';
+import v2Router from  './routers/v2/index.router';
 const app = express();
 
+
+app.use(express.json());
 
 /**
  * Registering all the router and their corresponding routes without app server object.
  */
 app.use('/api/v1', v1Router);
+app.use('/api/v2', v2Router);
 
 app.listen(serverConfig.PORT, () => {
-    console.log(`Server is running on port ${serverConfig.PORT}`);
-    console.log('Press Ctlr + C to stop the server');
+    console.log(`Server is Running on PORT ${serverConfig.PORT}`);
+    console.log('Press Ctlr + C to stop the server.');
 });
