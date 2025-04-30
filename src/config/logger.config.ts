@@ -1,6 +1,8 @@
 import winston from "winston";
 import { getCorrelationId } from "../utils/helpers/request.helper";
 import DailyRotateFile from "winston-daily-rotate-file";
+import { MongoDB } from 'winston-mongodb';
+import { serverConfig } from ".";
 
 const logger = winston.createLogger({
   format: winston.format.combine(
@@ -27,6 +29,15 @@ const logger = winston.createLogger({
       maxSize: "20m",
       maxFiles: "14d",
     }),
+    new MongoDB({
+      db: serverConfig.MONGO_URI,
+      collection: "logs",
+      level: "info",
+      format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json()
+      ),
+    })
   ],
 });
 
