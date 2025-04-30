@@ -4,7 +4,7 @@ import logger from "../config/logger.config";
 
 export const pingHandler = async (req: Request, res: Response, next:NextFunction) => {
         try {
-           logger.info("Ping request Received", {"fileName":"ping.controller.ts", "method":"pingHandler", "line": 8, "correlationId": req.headers['x-Correlation-Id']});
+           logger.info("Ping request Received", {"fileName":"ping.controller.ts", "method":"pingHandler", "line": 8 });
                res.status(200).json({
                  message:"Pong",
               success: true,

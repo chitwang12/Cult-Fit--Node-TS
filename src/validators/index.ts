@@ -14,14 +14,12 @@ export const validateRequestBody = (schema: AnyZodObject) => {
         fileName: "index.ts",
         method: "validateRequestBody",
         line: 14,
-        correlationId: req.headers["x-Correlation-Id"],
       });
       await schema.parseAsync(req.body);
       logger.info("Request body is valid", {
         fileName: "index.ts",
         method: "validateRequestBody",
         line: 16,
-        correlationId: req.headers["x-Correlation-Id"],
       });
       next();
     } catch (error) {
@@ -29,7 +27,6 @@ export const validateRequestBody = (schema: AnyZodObject) => {
         fileName: "index.ts",
         method: "validateRequestBody",
         line: 20,
-        correlationId: req.headers["x-Correlation-Id"],
       });
       //If Valdiation fails
       res.status(400).json({
