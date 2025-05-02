@@ -27,7 +27,7 @@ const logger = winston.createLogger({
       filename: "logs/%DATE%.log",
       datePattern: "YYYY-MM-DD",
       maxSize: "20m",
-      maxFiles: "14d",
+      maxFiles: "30d",
     }),
     new MongoDB({
       db: serverConfig.MONGO_URI,

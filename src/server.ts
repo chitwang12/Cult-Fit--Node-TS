@@ -25,6 +25,6 @@ app.use('/api/v2', v2Router);
 app.use(genericErrorHandler);
 
 app.listen(serverConfig.PORT, () => {
-    console.log(`Server is Running on PORT ${serverConfig.PORT}`);
+    logger.info(`Server is Running on PORT ${serverConfig.PORT}`);
     logger.info('Press Ctlr + C to stop the server.', {"fileName":"server.ts", "method":"listen", "line": 27});
 });
